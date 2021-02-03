@@ -7,9 +7,10 @@
     "postinstall": "cd functions && npm install",
     "build": "npx gulp build",
     "start:dev": "npm run build && concurrently --kill-others \"npx gulp watch\" \"firebase serve\"",
-    "deploy:live:hosting": "npm run build && firebase deploy -P monkey-type --only hosting",
-    "deploy:live:functions": "npm run build && firebase deploy -P monkey-type --only functions",
-    "deploy:live": "npm run build && firebase deploy -P live"
+    "deploy:release:hosting": "npm run build && firebase deploy --only hosting:release",
+    "deploy:release:functions": "npm run build && firebase deploy --only functions:release",
+    "deploy:unstable:hosting": "npm run build && firebase deploy --only hosting:unstable",
+    "deploy:unstable:functions": "npm run build && firebase deploy --only functions:unstable"
   },
   "engines": {
     "node": "10"
